@@ -34,12 +34,12 @@
 </a>
 
 ## Projeto em produção na Vercel
-<p align="center">
 <a href="https://alurakut-one-hazel.vercel.app/">
+
+<p align="center">
    <img src="https://assets.vercel.com/image/upload/q_auto/front/assets/design/components/triangle.gif" width="500px;"></img>
-   <sub>
-          <b>Acesse o projeto aqui!</b>
-   </sub>
-</a>
-</center>
+</P>
+<p align="center">
+      <b>Acesse o projeto aqui!</b>
 </p>
+</a>
