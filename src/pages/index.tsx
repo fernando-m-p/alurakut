@@ -16,7 +16,9 @@ export default function Home() {
       <MainGrid>
         <ColumMain className="profileArea">
           <Box>
-            <img src={`https://github.com/${usuarioAleatorio}.png`} />
+            <a href={`https://github.com/${usuarioAleatorio}`}>
+              <img src={`https://github.com/${usuarioAleatorio}.png`} />
+            </a>
           </Box>
         </ColumMain>
         <ColumMain className="welcomeArea">
