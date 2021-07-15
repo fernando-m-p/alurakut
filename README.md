@@ -1,84 +1,45 @@
-# Example app with styled-components
+## Imersão React - Alurakut
+<p>Projeto proposto no evento da Imersão React realizado pela Alura no periodo de <red> 12 de julho de 2021 </red> até <red> 16 de julho de 2021 </red> </p>
 
-This example features how you use a different styling solution than [styled-jsx](https://github.com/vercel/styled-jsx) that also supports universal styles. That means we can serve the required styles for the first render within the HTML and then load the rest in the client. In this case we are using [styled-components](https://github.com/styled-components/styled-components).
+## O que esse projeto é?
+<p> Um projeto desenvolvido no evento para aprender sobre a tecnologia e se conectar com outros desenvolvedores</p>
+<p> Consiste em uma cópia de uma rede social lançada em 2004 e desativada em 2014 <a href="https://pt.wikipedia.org/wiki/Orkut" >Saiba mais sobre a história do Orkut</a></p>
 
-For this purpose we are extending the `<Document />` and injecting the server side rendered styles into the `<head>`, and also adding the `babel-plugin-styled-components` (which is required for server side rendering). Additionally we set up a global [theme](https://www.styled-components.com/docs/advanced#theming) for styled-components using NextJS custom [`<App>`](https://nextjs.org/docs/advanced-features/custom-app) component.
+## O que meu projeto tem de diferente?
+- Typescript
+  - Utilizei typescript no projeto, apesar de ser uma funcionalidade que não impacta no resultado, me ajuda a padronizar e organizar o código quando estou codificando. Não deixando alguns problemas para serem resolvidos depois.
+- Integração com a API do github
+  - Meu projeto está se conectando com a API do github e buscando as informações dos seguidores e quem está seguindo o perfil, além das fotos e links dos perfis.
+  - Próximas etapas será recuperado mais informações da API.
+- Componentes Organizados
+  - Foi utilizado alguns componentes dos arquivo passado na Imersão e foi organizado em pastas e arquivos para melhor manutenção no código.
+  
+ ## Tecnologias Utilizadas
+ <p align="left"> 
+ <a href="https://www.w3schools.com/css/" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a> 
+ <a href="https://www.w3.org/html/" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a> 
+ <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a> 
+ <a href="https://nodejs.org" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="nodejs" width="40" height="40"/> </a> 
+ <a href="https://reactjs.org/" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/> </a> 
+ <a href="https://git-scm.com/" target="_blank"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> </a> 
+ <a href="https://www.typescriptlang.org/" target="_blank"> <img src="https://github.com/abranhe/programming-languages-logos/blob/master/src/typescript/typescript_48x48.png" alt="typescript" width="40" height="40"/> </a> 
+ </p>
+ 
+ ## Contribuidor
+ <a href="https://github.com/fernando-m-p">
+        <img src="https://avatars1.githubusercontent.com/u/58078779" width="100px;" alt="Foto do Fernando Morais Peixoto"/><br>
+        <sub>
+          <b>Fernando Morais Peixoto</b>
+        </sub>
+</a>
 
-## Preview
+## Projeto em produção na Vercel
+<a href="https://alurakut-one-hazel.vercel.app/">
 
-Preview the example live on [StackBlitz](http://stackblitz.com/):
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-styled-components)
-
-## Deploy your own
-
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-styled-components&project-name=with-styled-components&repository-name=with-styled-components)
-
-## How to use
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
-
-```bash
-npx create-next-app --example with-styled-components with-styled-components-app
-# or
-yarn create next-app --example with-styled-components with-styled-components-app
-```
-
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
-
-### Try it on CodeSandbox
-
-[Open this example on CodeSandbox](https://codesandbox.io/s/github/vercel/next.js/tree/canary/examples/with-styled-components)
-
-### Notes
-
-When wrapping a [Link](https://nextjs.org/docs/api-reference/next/link) from `next/link` within a styled-component, the [as](https://styled-components.com/docs/api#as-polymorphic-prop) prop provided by `styled` will collide with the Link's `as` prop and cause styled-components to throw an `Invalid tag` error. To avoid this, you can either use the recommended [forwardedAs](https://styled-components.com/docs/api#forwardedas-prop) prop from styled-components or use a different named prop to pass to a `styled` Link.
-
-<details>
-<summary>Click to expand workaround example</summary>
-<br />
-
-**components/StyledLink.js**
-
-```javascript
-import Link from 'next/link'
-import styled from 'styled-components'
-
-const StyledLink = ({ as, children, className, href }) => (
-  <Link href={href} as={as} passHref>
-    <a className={className}>{children}</a>
-  </Link>
-)
-
-export default styled(StyledLink)`
-  color: #0075e0;
-  text-decoration: none;
-  transition: all 0.2s ease-in-out;
-
-  &:hover {
-    color: #40a9ff;
-  }
-
-  &:focus {
-    color: #40a9ff;
-    outline: none;
-    border: 0;
-  }
-`
-```
-
-**pages/index.js**
-
-```javascript
-import StyledLink from '../components/StyledLink'
-
-export default () => (
-  <StyledLink href="/post/[pid]" forwardedAs="/post/abc">
-    First post
-  </StyledLink>
-)
-```
-
-</details>
+<p align="center">
+   <img src="https://assets.vercel.com/image/upload/q_auto/front/assets/design/components/triangle.gif" width="500px;"></img>
+</P>
+<p align="center">
+      <b>Acesse o projeto aqui!</b>
+</p>
+</a>
