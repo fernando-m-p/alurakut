@@ -4,6 +4,9 @@ import Menu from "./Menu";
 import ColumMain from "./ColumMain";
 import ProfileRelations from "./ProfileRelations";
 import { OrkutNostalgicIconSet } from "./OrkutNostalgicIconSet";
+import { AlurakutMenuProfileSidebar } from "./AlurakutMenuProfileSidebar";
+import CommunitiesUser from "./CommunitiesUser";
+import CommunityForm from "./CommunityForm";
 
 export {
   Box,
@@ -12,4 +15,7 @@ export {
   ColumMain,
   ProfileRelations,
   OrkutNostalgicIconSet,
+  AlurakutMenuProfileSidebar,
+  CommunitiesUser,
+  CommunityForm,
 };

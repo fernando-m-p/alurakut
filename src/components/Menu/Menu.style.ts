@@ -3,10 +3,57 @@ const BASE_URL = "http://alurakut.vercel.app/";
 
 export const MenuHeader = styled.header`
   width: 100%;
-  background-color: #308bc5;
+  background-color: #3b0a64;
+
+  .alurakutMenuProfileSidebar {
+    background: white;
+    position: fixed;
+    z-index: 100;
+    padding: 46px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 48px;
+    transition: 0.3s;
+
+    &.isOpenMenu {
+      pointer-events: all;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    &.isClosedMenu {
+      pointer-events: none;
+      opacity: 0;
+      transform: translateY(calc(-100% - 48px));
+    }
+    @media (min-width: 860px) {
+      display: none;
+    }
+    > div {
+      max-width: 400px;
+      margin: auto;
+    }
+    a {
+      font-size: 18px;
+    }
+    .boxLink {
+      font-size: 18px;
+      color: #2e7bb4;
+      -webkit-text-decoration: none;
+      text-decoration: none;
+      font-weight: 800;
+    }
+    hr {
+      margin-top: 12px;
+      margin-bottom: 8px;
+      border-color: transparent;
+      border-bottom-color: #ecf2fa;
+    }
+  }
 
   .container {
-    background-color: #308bc5;
+    background-color: transparent;
     padding: 7px 16px;
     max-width: 1110px;
     margin: auto;
@@ -30,7 +77,7 @@ export const MenuHeader = styled.header`
         display: none;
       }
     }
-    nav {
+    > nav {
       display: none;
       @media (min-width: 860px) {
         display: flex;

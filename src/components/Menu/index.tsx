@@ -5,8 +5,13 @@ const BASE_URL = "http://alurakut.vercel.app/";
 const v = "1";
 
 import { Link } from "../Link";
+import { AlurakutMenuProfileSidebar } from "../AlurakutMenuProfileSidebar";
 
-export default function Menu(props: InputHTMLAttributes<HTMLBaseElement>) {
+type MenuProps = InputHTMLAttributes<HTMLBaseElement> & {
+  userProfile: string;
+};
+
+export default function Menu({ userProfile, ...props }: MenuProps) {
   const [isMenuOpen, setMenuState] = React.useState(false);
   const links = [
     { name: "Inicio", slug: "/" },
@@ -42,6 +47,10 @@ export default function Menu(props: InputHTMLAttributes<HTMLBaseElement>) {
             <img src={`${BASE_URL}/icons/menu-closed.svg?v=${v}`} />
           )}
         </button>
+        <AlurakutMenuProfileSidebar
+          githubUser={userProfile}
+          isOpen={isMenuOpen}
+        />
       </div>
     </MenuHeader>
   );

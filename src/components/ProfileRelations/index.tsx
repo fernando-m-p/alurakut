@@ -13,6 +13,7 @@ export default function ProfileRelations({ user }) {
   const [followers, setFollowers] = useState([] as UserProfile[]);
   useEffect(() => {
     axios.get(`https://api.github.com/users/${user}/following`).then((res) => {
+      console.log(res);
       const seguindo = res.data
         .map((item) => {
           return {
@@ -23,7 +24,7 @@ export default function ProfileRelations({ user }) {
         })
         .reverse();
 
-      setFollowing(seguindo.slice(0, 6));
+      setFollowing(seguindo);
     });
     axios.get(`https://api.github.com/users/${user}/followers`).then((res) => {
       const seguindo = res.data.map((item) => {
@@ -33,7 +34,7 @@ export default function ProfileRelations({ user }) {
           avatar: item.avatar_url,
         };
       });
-      setFollowers(seguindo.slice(0, 5));
+      setFollowers(seguindo);
     });
   }, []);
 
@@ -42,7 +43,7 @@ export default function ProfileRelations({ user }) {
       <ProfileRelationsBoxWrapper>
         <h2 className="smallTitle">Seguindo ({following.length})</h2>
         <ul>
-          {following.map((itemAtual) => {
+          {following.slice(0, 6).map((itemAtual) => {
             return (
               <li key={itemAtual.nameUser}>
                 <a href={itemAtual.link}>
@@ -57,7 +58,7 @@ export default function ProfileRelations({ user }) {
       <ProfileRelationsBoxWrapper>
         <h2 className="smallTitle"> Seguidores ({followers.length})</h2>
         <ul>
-          {followers.map((itemAtual) => {
+          {followers.slice(0, 6).map((itemAtual) => {
             return (
               <li key={itemAtual.nameUser}>
                 <a href={itemAtual.link}>

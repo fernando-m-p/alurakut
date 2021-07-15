@@ -8,7 +8,7 @@ export const GlobalStyle = createGlobalStyle`
   };
 
   body {
-    background: ${(props) => props.theme.colors.backgroundPrimary};
+     background: radial-gradient(ellipse at bottom, #1B2735 0%, #191F24 100%);
     font-family:sans-serif;
   };
 
