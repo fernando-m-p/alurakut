@@ -45,7 +45,7 @@ export async function getAllCommunities() {
 
 export async function getCommunitiesUser(user) {
   const data = await fetchCmsAPI(`{
-  allComunities(filter: {createAt: {eq: "fernando-m-p"}}) {
+  allComunities(filter: {createAt: {eq: "${user}"}}) {
     id
     title
     imagemUrl

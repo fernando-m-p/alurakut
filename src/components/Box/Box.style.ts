@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const BoxContainer = styled.div`
-  background: #ffffff;
+  background: ${(props) => props.theme.colors.backgroundBox};
   border-radius: 8px;
   padding: 16px;
   /* CSS Pré-Pronto */

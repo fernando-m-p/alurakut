@@ -7,6 +7,7 @@ import { OrkutNostalgicIconSet } from "./OrkutNostalgicIconSet";
 import { AlurakutMenuProfileSidebar } from "./AlurakutMenuProfileSidebar";
 import CommunitiesUser from "./CommunitiesUser";
 import CommunityForm from "./CommunityForm";
+import LoginGrid from "./LoginGrid";
 
 export {
   Box,
@@ -18,4 +19,5 @@ export {
   AlurakutMenuProfileSidebar,
   CommunitiesUser,
   CommunityForm,
+  LoginGrid,
 };

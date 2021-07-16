@@ -16,7 +16,4 @@ export const ColumGrid = styled.div`
 
   &.welcomeArea {
   }
-
-  &.profileRelationsArea {
-  }
 `;

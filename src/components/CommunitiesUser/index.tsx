@@ -1,5 +1,3 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
 import { CommunitiesUserBoxWrapper } from "./CommunitiesUser.style";
 
 export default function CommunitiesUser({ communities }) {
@@ -10,7 +8,7 @@ export default function CommunitiesUser({ communities }) {
         <ul>
           {communities.slice(0, 6).map((itemAtual) => {
             return (
-              <li key={itemAtual.title}>
+              <li key={itemAtual.id}>
                 <a href={itemAtual.imagemUrl}>
                   <img src={itemAtual.imagemUrl} />
                   <span>{itemAtual.title}</span>
