@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { Dispatch } from "react";
 import { Box } from "..";
 import { addCommunities } from "../../services/datoCMSConnection";
@@ -11,42 +12,47 @@ type YourFormElement = HTMLFormElement & {
   readonly elements: FormElements;
 };
 
-export default function CommunityForm({
-  userCurrent,
-  addCommunitiesParam,
-}: {
+type CommunityType = {
+  title: string;
+  imagemUrl: string;
+  createAt: string;
+};
+
+type CommunityFormProps = {
   userCurrent: string;
-  addCommunitiesParam: ({}: {
-    title: string;
-    imagemUrl: string;
-    createAt: string;
-  }) => void;
-}) {
+  addCommunitiesParam: ({}: CommunityType) => void;
+};
+
+export default function CommunityForm(props: CommunityFormProps) {
+  const { userCurrent, addCommunitiesParam } = props;
   const [user, setUser] = React.useState(userCurrent);
+
   const handleCommunity = async (
     event: React.FormEvent<YourFormElement>,
-    userParam: string
+    createAt: string
   ) => {
     event.preventDefault();
+
     const title = event.currentTarget.elements.title;
     const imagemUrl = event.currentTarget.elements.imageURL;
     let imagem = imagemUrl.value;
 
-    if (imagem === undefined || imagem === "") {
-      const idAleatorio = Math.random();
-      imagem = `https://picsum.photos/300/300?${idAleatorio}`;
-    }
-    const createAt = userParam;
-    await addCommunities({
-      title: title.value.toString(),
-      imagemUrl: imagem,
-      createAt,
+    const res = await fetch("/api/comunidades", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ title: title.value, imagem, createAt }),
+    }).then((response) => {
+      return response.json();
     });
-    addCommunitiesParam({
-      title: title.value.toString(),
-      imagemUrl: imagem,
-      createAt,
-    });
+    const comunidade = {
+      title: res.comunidade.title,
+      imagemUrl: res.comunidade.imagemUrl,
+      createAt: res.comunidade.createAt,
+    };
+
+    addCommunitiesParam(comunidade);
     title.value = "";
     imagemUrl.value = "";
   };

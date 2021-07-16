@@ -60,7 +60,7 @@ export async function addCommunities(dadosComunidade) {
   const client = new SiteClient(process.env.REACT_APP_TOKEN_FULL);
 
   try {
-    await client.items.create({
+    return await client.items.create({
       itemType: "967551",
       title: dadosComunidade.title,
       imagem_url: dadosComunidade.imagemUrl,

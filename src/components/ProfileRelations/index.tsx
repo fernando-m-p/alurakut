@@ -13,7 +13,6 @@ export default function ProfileRelations({ user }) {
   const [followers, setFollowers] = useState([] as UserProfile[]);
   useEffect(() => {
     axios.get(`https://api.github.com/users/${user}/following`).then((res) => {
-      console.log(res);
       const seguindo = res.data
         .map((item) => {
           return {
